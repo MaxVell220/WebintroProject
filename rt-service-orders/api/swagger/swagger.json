@@ -1,0 +1,133 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "0.0.4",
+    "title" : "RT Orders service"
+  },
+  "host" : "localhost:10011",
+  "basePath" : "/api/v1",
+  "schemes" : [ "http", "https" ],
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/orders" : {
+      "get" : {
+        "description" : "List orders",
+        "operationId" : "listOrders",
+        "parameters" : [ {
+          "name" : "spotId",
+          "in" : "query",
+          "description" : "Order to filter out",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "startTime",
+          "in" : "query",
+          "description" : "Start time of orders updates",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "endTime",
+          "in" : "query",
+          "description" : "End time of orders updates",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page to iterate, 1 is default",
+          "required" : false,
+          "type" : "number"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Order"
+              }
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "x-swagger-router-controller" : "orders"
+    },
+    "/orders/types" : {
+      "get" : {
+        "description" : "List of orders",
+        "operationId" : "listOrderTypes",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/OrderType"
+              }
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "x-swagger-router-controller" : "orders"
+    },
+    "/swagger" : {
+      "x-swagger-pipe" : "swagger_raw"
+    }
+  },
+  "definitions" : {
+    "Order" : {
+      "required" : [ "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "takeOffId" : {
+          "type" : "number"
+        },
+        "orderType" : {
+          "type" : "string"
+        },
+        "time" : {
+          "type" : "string"
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "queue | ready | taken"
+        }
+      }
+    },
+    "OrderType" : {
+      "required" : [ "name" ],
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ErrorResponse" : {
+      "required" : [ "message" ],
+      "properties" : {
+        "message" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}
