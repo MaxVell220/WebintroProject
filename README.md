@@ -1,4 +1,2 @@
-# VAHAN #
-
-The competing entities of the on-demand economy have some pretty major recruitment needs. Vahan is tackling the issue in India, helping companies like Uber and Zomato reach out to potential recruits via a WhatsApp bot. The startup is earning $20 per successful hire they recruit for their customers.
+Rejuvenation Technologies: If this startup gets its way, it’ll make it so we all live longer. Through extending the protective cap of DNA that functions as an aging clock, called telomeres, Rejuvenation Technologies aims to reverse aging. Rejuvenation’s drug extends telomeres and is already testing in animals, and says that one dose given to a mouse appeared to turn back the clock the equivalent of five years in humans. The founders envision a world where people take the drug to extend their healthspan and lifespans. 
 
